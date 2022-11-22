@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import SuperadminText from "./SuperadminText";
+import Portfolio from "./Portfolio";
 import { messapiaBold } from "./fonts";
 
 export default async function Home() {
@@ -8,8 +9,8 @@ export default async function Home() {
   ).json();
 
   return (
-    <div className="grid grid-cols-[300px,1fr]">
-      <div className="p-6 pt-24 sticky top-0 w-full">
+    <div className="grid grid-cols-[340px,1fr]">
+      <div className="p-6 pt-24 sticky top-0 w-full h-screen">
         <h1
           className={classNames(
             "text-gray-50 text-2xl font-bold",
@@ -22,6 +23,10 @@ export default async function Home() {
         <div className="mt-4">
           <SuperadminText text={basics.bio} />
         </div>
+      </div>
+
+      <div>
+        <Portfolio />
       </div>
     </div>
   );
