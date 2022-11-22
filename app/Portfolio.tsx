@@ -1,12 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-
-type PortfolioEntry = {
-  id: number;
-  image: string;
-  name: string;
-};
+import PortfolioEntry from "./portfolio_entry";
 
 export default function Portfolio({
   portfolio,
@@ -17,13 +13,10 @@ export default function Portfolio({
     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 800: 2, 1100: 3 }}>
       <Masonry gutter="1.5rem">
         {portfolio.map((entry) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={entry.id}
-            src={entry.image}
-            alt={entry.name}
-            className="rounded-lg"
-          />
+          <Link key={entry.id} href={`/${entry.id}`} className="cursor-zoom-in">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={entry.image} alt={entry.name} className="rounded-lg" />
+          </Link>
         ))}
       </Masonry>
     </ResponsiveMasonry>
