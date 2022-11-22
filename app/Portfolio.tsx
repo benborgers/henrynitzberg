@@ -13,7 +13,11 @@ export default function Portfolio({
     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 800: 2, 1100: 3 }}>
       <Masonry gutter="1.5rem">
         {portfolio.map((entry) => (
-          <Link key={entry.id} href={`/${entry.id}`} className="cursor-zoom-in">
+          <Link
+            key={entry.id}
+            href={`/${entry.id}`}
+            className="cursor-zoom-in hover:brightness-110 transition"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={entry.image} alt={entry.name} className="rounded-lg" />
           </Link>
