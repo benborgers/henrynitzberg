@@ -11,7 +11,7 @@ export default function RootLayout({
       <body className="antialiased bg-black">
         <div
           style={{ backgroundImage: "url('/noise.png')" }}
-          className="h-screen w-screen fixed inset-0 opacity-[0.08] pointer-events-none"
+          className="h-screen w-screen fixed inset-0 opacity-[0.08] pointer-events-none -z-10"
         />
         {children}
       </body>

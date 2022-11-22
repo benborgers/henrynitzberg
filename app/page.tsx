@@ -8,6 +8,10 @@ export default async function Home() {
     await fetch("https://superadmin.elk.sh/~henrynitzberg/basics.json")
   ).json();
 
+  const portfolio = await (
+    await fetch("https://superadmin.elk.sh/~henrynitzberg/portfolio.json")
+  ).json();
+
   return (
     <div className="grid grid-cols-[340px,1fr]">
       <div className="p-6 pt-24 sticky top-0 w-full h-screen">
@@ -25,8 +29,8 @@ export default async function Home() {
         </div>
       </div>
 
-      <div>
-        <Portfolio />
+      <div className="pt-4 pr-4 sm:pt-6 sm:pr-6 pb-24">
+        <Portfolio portfolio={portfolio} />
       </div>
     </div>
   );
