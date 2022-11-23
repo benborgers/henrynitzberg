@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SuperadminText from "../SuperadminText";
+import Prose from "../Prose";
 import ContactForm from "./ContactForm";
 import XIcon from "../XIcon";
 
@@ -21,7 +21,7 @@ export default async function Contact() {
         </div>
 
         <div className="mt-4">
-          <SuperadminText text={basics.contact} />
+          <Prose html={basics.contact} />
         </div>
 
         <ContactForm />

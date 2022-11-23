@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import SuperadminText from "./SuperadminText";
+import Prose from "./Prose";
 import Portfolio from "./Portfolio";
 import Button from "./Button";
 import { messapiaBold } from "./fonts";
@@ -26,7 +26,7 @@ export default async function Home() {
         </h1>
 
         <div className="mt-4">
-          <SuperadminText text={basics.bio} />
+          <Prose html={basics.bio} />
         </div>
 
         <div className="mt-10">
