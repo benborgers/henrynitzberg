@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import cdn from "../cdn";
 import XIcon from "../XIcon";
 import getPortfolioEntry from "./getPortfolioEntry";
 
@@ -26,7 +27,7 @@ export default async function PortfolioEntry({
       </div>
       {/* eslint-disable @next/next/no-img-element */}
       <img
-        src={entry.image}
+        src={cdn(entry.image, 2000)}
         alt={entry.name}
         className="object-contain rounded-xl block max-h-[calc(100vh-5rem)] max-w-[calc(100vw-2rem)] mx-auto"
       />

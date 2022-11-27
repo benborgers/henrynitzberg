@@ -3,6 +3,7 @@ import Prose from "./Prose";
 import Portfolio from "./Portfolio";
 import Button from "./Button";
 import { messapiaBold } from "./fonts";
+import cdn from "./cdn";
 
 export default async function Home() {
   const basics = await (
@@ -18,7 +19,7 @@ export default async function Home() {
       <div className="px-4 pb-8 pt-8 sm:p-6 sm:pt-16 sm:sticky sm:top-0 w-full sm:h-screen">
         {/* eslint-disable @next/next/no-img-element */}
         <img
-          src={basics.image}
+          src={cdn(basics.image, 200)}
           alt="Henry Nitzberg"
           className="h-28 rounded-full"
         />

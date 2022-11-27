@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import cdn from "./cdn";
 import PortfolioEntry from "./portfolio_entry";
 
 export default function Portfolio({
@@ -19,7 +20,11 @@ export default function Portfolio({
             className="cursor-zoom-in hover:brightness-110 transition"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={entry.image} alt={entry.name} className="rounded-lg" />
+            <img
+              src={cdn(entry.image, 1000)}
+              alt={entry.name}
+              className="rounded-lg"
+            />
           </Link>
         ))}
       </Masonry>
