@@ -16,7 +16,7 @@ export default async function PortfolioEntry({
 
   return (
     <div className="p-4">
-      <div className="flex justify-end mb-2">
+      <div className="flex justify-end mb-4">
         <Link
           href="/"
           className="bg-gray-800 hover:bg-gray-700 transition-colors h-7 w-7 rounded-full grid place-items-center"
