@@ -38,7 +38,7 @@ export default async function Home() {
         </div>
 
         <div className="mt-8 sm:mt-10">
-          <Button href="/contact">Request Commission</Button>
+          <Button href="/contact">Inquire About Commissions</Button>
         </div>
       </div>
 
