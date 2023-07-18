@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Prose from "../Prose";
+import Prose from "../../Prose";
 import ContactForm from "./ContactForm";
-import XIcon from "../XIcon";
+import XIcon from "../../XIcon";
 
 export default async function Contact() {
   const basics = await (

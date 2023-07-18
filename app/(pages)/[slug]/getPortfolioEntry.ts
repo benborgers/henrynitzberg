@@ -1,4 +1,4 @@
-import PortfolioEntryType from "../portfolio_entry";
+import PortfolioEntryType from "../../portfolio_entry";
 
 export default async function getPortfolioEntry(slug: string) {
   const portfolio: PortfolioEntryType[] = await (
