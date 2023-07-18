@@ -1,18 +1,24 @@
 import classNames from "classnames";
+import { createReader } from "@keystatic/core/reader";
 import Prose from "./Prose";
 import Portfolio from "./Portfolio";
 import Button from "./Button";
 import { messapiaBold } from "./fonts";
 import cdn from "./cdn";
+import config from "../../keystatic.config";
+
+const reader = createReader(process.cwd(), config);
 
 export default async function Home() {
-  const basics = await (
-    await fetch("https://superadmin.elk.sh/~henrynitzberg/basics.json")
-  ).json();
+  const basics = await reader.singletons.basics.read();
 
   const portfolio = await (
     await fetch("https://superadmin.elk.sh/~henrynitzberg/portfolio.json")
   ).json();
+
+  if (!basics) {
+    return null;
+  }
 
   return (
     <div className="grid sm:grid-cols-[340px,1fr] sm:gap-2">
@@ -34,7 +40,7 @@ export default async function Home() {
         </h1>
 
         <div className="mt-4">
-          <Prose html={basics.bio} />
+          <Prose document={await basics.bio()} />
         </div>
 
         <div className="mt-8 sm:mt-10">
