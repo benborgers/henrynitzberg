@@ -1,12 +1,18 @@
 import Link from "next/link";
-import Prose from "../../Prose";
+import { createReader } from "@keystatic/core/reader";
+import Prose from "../Prose";
 import ContactForm from "./ContactForm";
-import XIcon from "../../XIcon";
+import XIcon from "../XIcon";
+import config from "../../../keystatic.config";
+
+const reader = createReader(process.cwd(), config);
 
 export default async function Contact() {
-  const basics = await (
-    await fetch("https://superadmin.elk.sh/~henrynitzberg/basics.json")
-  ).json();
+  const basics = await reader.singletons.basics.read();
+
+  if (!basics) {
+    return null;
+  }
 
   return (
     <div className="p-2 sm:p-6 sm:min-h-screen grid sm:place-items-center">
@@ -21,7 +27,7 @@ export default async function Contact() {
         </div>
 
         <div className="mt-4">
-          <Prose html={basics.contact} />
+          <Prose document={await basics.contact()} />
         </div>
 
         <ContactForm />
