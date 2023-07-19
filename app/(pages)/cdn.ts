@@ -3,6 +3,10 @@ export default function cdn(url: string | null, height: number) {
     return "";
   }
 
+  if (process.env.NODE_ENV === "development") {
+    return url;
+  }
+
   if (url.startsWith("/")) {
     url = `https://henrynitzberg.com${url}`;
   }
