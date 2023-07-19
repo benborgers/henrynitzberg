@@ -21,7 +21,7 @@ export default function Portfolio({
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={cdn(entry.image, 1000)}
+              src={cdn(entry.image, 2000)}
               alt={entry.name}
               className="rounded-lg"
             />
