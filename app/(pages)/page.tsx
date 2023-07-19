@@ -21,7 +21,7 @@ const reader = createReader(process.cwd(), config);
 
 export default async function Home() {
   const basics = (await reader.singletons.basics.read())!;
-  const portfolio = getPortfolio();
+  const portfolio = await getPortfolio();
 
   return (
     <div className="grid sm:grid-cols-[340px,1fr] sm:gap-2">
