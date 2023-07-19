@@ -48,7 +48,7 @@ export default async function PortfolioEntry({
           )}
         />
         <div className="md:max-w-[250px]">
-          <Prose html={entry.caption ?? ""} />
+          {entry.caption && <Prose document={entry.caption} />}
         </div>
       </div>
     </div>
