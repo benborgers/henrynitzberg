@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import classNames from "classnames";
 import { createReader } from "@keystatic/core/reader";
 import Prose from "./Prose";
@@ -7,6 +8,13 @@ import { messapiaBold } from "./fonts";
 import cdn from "./cdn";
 import config from "../../keystatic.config";
 import PortfolioEntry from "./portfolio_entry";
+
+export const metadata: Metadata = {
+  title: "Henry Nitzberg",
+  icons: {
+    shortcut: "/favicon.png",
+  },
+};
 
 const reader = createReader(process.cwd(), config);
 

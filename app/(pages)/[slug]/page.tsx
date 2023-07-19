@@ -1,16 +1,29 @@
-import classNames from "classnames";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import classNames from "classnames";
 import cdn from "../cdn";
 import Prose from "../Prose";
 import XIcon from "../XIcon";
 import getPortfolioEntry from "./getPortfolioEntry";
 
-export default async function PortfolioEntry({
+type Params = { slug: string };
+
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}) {
+  params: Params;
+}): Promise<Metadata> {
+  const entry = await getPortfolioEntry(params.slug);
+  return {
+    title: `${entry?.name} - Henry Nitzberg`,
+    icons: {
+      shortcut: "/favicon.png",
+    },
+  };
+}
+
+export default async function PortfolioEntry({ params }: { params: Params }) {
   const entry = await getPortfolioEntry(params.slug);
 
   if (!entry) {

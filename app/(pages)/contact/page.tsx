@@ -1,9 +1,17 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { createReader } from "@keystatic/core/reader";
 import Prose from "../Prose";
 import ContactForm from "./ContactForm";
 import XIcon from "../XIcon";
 import config from "../../../keystatic.config";
+
+export const metadata: Metadata = {
+  title: "Contact Henry Nitzberg",
+  icons: {
+    shortcut: "/favicon.png",
+  },
+};
 
 const reader = createReader(process.cwd(), config);
 
