@@ -1,5 +1,5 @@
 // keystatic.config.ts
-import { config, fields, singleton } from "@keystatic/core";
+import { collection, config, fields, singleton } from "@keystatic/core";
 
 export default config({
   storage: {
@@ -21,6 +21,42 @@ export default config({
         }),
         contact: fields.document({
           label: "Contact Text",
+          formatting: true,
+          links: true,
+        }),
+      },
+    }),
+    portfolio: singleton({
+      label: "Portfolio order",
+      schema: {
+        order: fields.array(
+          fields.relationship({
+            label: "Portfolio piece",
+            collection: "portfolio",
+          }),
+          {
+            label: "Order",
+            description:
+              "Only portfolio pieces placed in order here will show on the website.",
+            itemLabel: (props) => props.value,
+          }
+        ),
+      },
+    }),
+  },
+  collections: {
+    portfolio: collection({
+      label: "Portfolio",
+      slugField: "name",
+      schema: {
+        name: fields.slug({ name: { label: "Name" } }),
+        image: fields.file({
+          label: "Image",
+          directory: "public/uploads",
+          publicPath: "/uploads",
+        }),
+        caption: fields.document({
+          label: "Caption (optional)",
           formatting: true,
           links: true,
         }),
