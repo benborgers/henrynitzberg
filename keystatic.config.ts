@@ -26,7 +26,7 @@ export default config({
         }),
       },
     }),
-    portfolio: singleton({
+    portfolioOrder: singleton({
       label: "Portfolio order",
       schema: {
         order: fields.array(
@@ -38,7 +38,7 @@ export default config({
             label: "Order",
             description:
               "Only portfolio pieces placed in order here will show on the website.",
-            itemLabel: (props) => props.value,
+            itemLabel: (props) => props.value ?? "",
           }
         ),
       },
