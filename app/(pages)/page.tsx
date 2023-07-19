@@ -8,6 +8,7 @@ import { messapiaBold } from "./fonts";
 import cdn from "./cdn";
 import config from "../../keystatic.config";
 import PortfolioEntry from "./portfolio_entry";
+import { getPortfolio } from "./getPortfolio";
 
 export const metadata: Metadata = {
   title: "Henry Nitzberg",
@@ -20,21 +21,7 @@ const reader = createReader(process.cwd(), config);
 
 export default async function Home() {
   const basics = (await reader.singletons.basics.read())!;
-  const order = (await reader.singletons.portfolioOrder.read())!.order;
-
-  const portfolio: PortfolioEntry[] = [];
-
-  for (const slug of order) {
-    const item = await reader.collections.portfolio.read(slug!);
-    if (item !== null && slug !== null && item.image !== null) {
-      portfolio.push({
-        ...item,
-        slug,
-        image: item.image,
-        caption: await item.caption(),
-      });
-    }
-  }
+  const portfolio = getPortfolio();
 
   return (
     <div className="grid sm:grid-cols-[340px,1fr] sm:gap-2">
