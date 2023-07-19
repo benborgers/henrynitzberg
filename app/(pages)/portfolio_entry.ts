@@ -1,8 +1,10 @@
+import { DocumentElement } from "@keystatic/core";
+
 type PortfolioEntry = {
-  id: number;
-  image: string;
   name: string;
-  caption: string;
+  slug: string;
+  image: string;
+  caption: DocumentElement[];
 };
 
 export default PortfolioEntry;

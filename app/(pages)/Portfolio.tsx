@@ -15,8 +15,8 @@ export default function Portfolio({
       <Masonry gutter="1.5rem">
         {portfolio.map((entry) => (
           <Link
-            key={entry.id}
-            href={`/${entry.id}`}
+            key={entry.slug}
+            href={`/${entry.slug}`}
             className="cursor-zoom-in hover:brightness-110 transition"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}

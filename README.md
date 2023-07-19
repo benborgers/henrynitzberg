@@ -1,8 +1,8 @@
-Website for Henry Nitzberg: [henrynitzberg.vercel.app](https://henrynitzberg.vercel.app)
+Website for Henry Nitzberg: [henrynitzberg.com](https://henrynitzberg.com)
 
 ## Development
 
-Built using [Next.js](https://nextjs.org). Data is pulled from my personal CMS, Superadmin.
+Built using [Next.js](https://nextjs.org) and [Keystatic](https://keystatic.com) for the CMS.
 
 ```
 npm run dev
