@@ -1,9 +1,9 @@
-// keystatic.config.ts
 import { collection, config, fields, singleton } from "@keystatic/core";
 
 export default config({
   storage: {
-    kind: "local",
+    kind: "github",
+    repo: "benborgers/henrynitzberg",
   },
   singletons: {
     basics: singleton({
